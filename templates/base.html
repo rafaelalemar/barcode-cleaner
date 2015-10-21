@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Barcode Cleaner</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+    <link rel="icon"  href="{{ url_for('static', filename='img/favicon.ico') }}">
+{#    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,700italic,700,500&subset=latin,latin-ext" rel="stylesheet" />#}
+{#    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" />#}
+</head>
+<body ng-app="app">
+
+    <!-- Fixed navbar -->
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">BARCODE CLEANER</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+
+<div class="container">
+    <div class="starter-template">
+        <form ng-controller="codBarrasController">
+            <div class="form-group">
+                <label for="codBarras">Cód. de Barras</label>
+                <input type="text" class="form-control" id="codBarras", placeholder="0021 001200.000000-55050 09 0212000110" ng-model="barcode">
+            </div>
+            <span ng-bind="clearBarcode()"></span>
+        </form>
+
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+
+
+    {#  External Libs  #}
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/angular.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+    {# Angular Libs #}
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/controllers/main.ctrl.js') }}"></script>
+
+
+</body>
+</html>
